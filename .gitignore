@@ -1,5 +1,5 @@
 .DS_Store
 .enyocache
-dist/
+#dist/
 *.xcodeproj/xcuserdata/
 *.xcodeproj/project.xcworkspace

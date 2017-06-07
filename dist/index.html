@@ -977,10 +977,11 @@ var e=!1
 switch(typeof t.choices){case"object":e=!Array.isArray(t.choices)||t.choices.length<=1
 break
 case"string":if("none"===t.choices){e=!0
-break}default:e=!0,t.choices&&(this.log("Invalid event choices:",t.choices),delete t.choices)}return t.isAlert=e,e},_isSorted:!1,_sort:function(){this._registry.sort(function(t,e){var n=t.priority||0,i=e.priority||0
-if(n!==i)return i-n
-var s=this._isAlert(t)
-return s===this._isAlert(e)?0:s?-1:1}),this._cache=null,this._isSorted=!0},add:function(t){if("string"!=typeof t||!t||arguments.length<2)throw new Error('Usage: this.add("category", event1, event2… eventN)')
+break}default:e=!0,t.choices&&(this.log("Invalid event choices:",t.choices),delete t.choices)}return t.isAlert=e,e},_isSorted:!1,_sort:function(){var t=this
+this._registry.sort(function(e,n){var i=e.priority||0,s=n.priority||0
+if(i!==s)return s-i
+var o=t._isAlert(e)
+return o===t._isAlert(n)?0:o?-1:1}),this._cache=null,this._isSorted=!0},add:function(t){if("string"!=typeof t||!t||arguments.length<2)throw new Error('Usage: this.add("category", event1, event2… eventN)')
 for(var e=[],n=1;n<arguments.length;n+=1){var i=arguments[n]
 i instanceof Object||!Array.isArray(i)?(i.category=t,e.push(i)):console.error("Unexpected event type: "+i)}e.length>0&&this._addToRegistry(e)},applyChoice:function(t,e){this.applyEffects(t,e)
 var n=[]
